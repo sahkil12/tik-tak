@@ -113,7 +113,6 @@ body{
 .toggle{display:inline-flex; gap:8px; align-items:center; color:var(--muted)}
 
 .foot{display:grid; place-items:center; padding:16px; color:var(--muted); font-size:.9rem}
-
 /* Light theme toggle */
 .light{
   --bg:#f6f7fb; --panel:#fff; --text:#0b1220; --muted:#51607a; --cell:#eff3ff; --cell-border:#d8e1ff;

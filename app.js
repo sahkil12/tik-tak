@@ -1,6 +1,3 @@
-/* Tic-Tac-Toe Pro (BN) — PWA + AI + Undo/Redo + Sounds + Theme + Online (PeerJS)
-   🔧 Single file handles: state, UI, AI, sounds, stats, P2P.
-*/
 const $ = sel => document.querySelector(sel);
 const $$ = sel => [...document.querySelectorAll(sel)];
 
@@ -250,7 +247,6 @@ function newGame(){
     conn.send({type:'reset'});
   }
 }
-
 function persist(){
   localStorage.setItem('score', JSON.stringify(score));
   localStorage.setItem('mode', mode);
@@ -331,7 +327,6 @@ function evaluate(state){
   if(state.every(Boolean)) return 0;
   return null;
 }
-
 // --- Events ---
 boardEl.addEventListener('click', e=>{
   const btn = e.target.closest('.cell'); if(!btn) return;
@@ -351,7 +346,6 @@ diffSel.addEventListener('change', e=>{
 paletteSel.addEventListener('change', e=>{
   palette = e.target.value; document.documentElement.setAttribute('data-palette', palette); persist();
 });
-
 // Theme toggle
 (function initTheme(){
   const saved = localStorage.getItem('theme') || 'dark';
@@ -364,7 +358,6 @@ themeBtn.addEventListener('click', ()=>{
   themeBtn.textContent = isLight ? '🌞' : '🌙';
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
-
 // PWA install + SW
 let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', (e)=>{
