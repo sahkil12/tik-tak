@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tic-Tac-Toe Pro 🇧🇩</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>টিক-ট্যাক-টো Pro</h1>
+    <div class="actions">
+      <button id="installBtn" class="btn ghost" hidden>ইনস্টল</button>
+      <button id="themeBtn" class="btn ghost" aria-label="থিম">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel glass">
+      <div class="controls">
+        <div class="group">
+          <label class="mode">
+            মোড:
+            <select id="mode">
+              <option value="human">লোকাল ২ জন</option>
+              <option value="ai">কম্পিউটার</option>
+              <option value="online">অনলাইন</option>
+            </select>
+          </label>
+
+          <label class="difficulty" id="difficultyWrap">
+            ডিফিকাল্টি:
+            <select id="difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard" selected>Hard</option>
+            </select>
+          </label>
+
+          <label class="palette">
+            থিম:
+            <select id="palette">
+              <option value="default">Default</option>
+              <option value="sunset">Sunset</option>
+              <option value="mint">Mint</option>
+              <option value="violet">Violet</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="group">
+          <button id="newGame" class="btn primary">নতুন গেম</button>
+          <button id="undoBtn" class="btn">Undo</button>
+          <button id="redoBtn" class="btn">Redo</button>
+          <button id="resetScore" class="btn">স্কোর রিসেট</button>
+          <label class="toggle">
+            <input type="checkbox" id="soundToggle" checked />
+            <span>সাউন্ড</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="status" class="status">চাল শুরু — X</div>
+
+      <div id="board" class="board" role="grid" aria-label="Tic Tac Toe বোর্ড">
+        <button class="cell" data-i="0" aria-label="সেল ১" role="gridcell"></button>
+        <button class="cell" data-i="1" aria-label="সেল ২" role="gridcell"></button>
+        <button class="cell" data-i="2" aria-label="সেল ৩" role="gridcell"></button>
+        <button class="cell" data-i="3" aria-label="সেল ৪" role="gridcell"></button>
+        <button class="cell" data-i="4" aria-label="সেল ৫" role="gridcell"></button>
+        <button class="cell" data-i="5" aria-label="সেল ৬" role="gridcell"></button>
+        <button class="cell" data-i="6" aria-label="সেল ৭" role="gridcell"></button>
+        <button class="cell" data-i="7" aria-label="সেল ৮" role="gridcell"></button>
+        <button class="cell" data-i="8" aria-label="সেল ৯" role="gridcell"></button>
+      </div>
+
+      <div class="meta">
+        <div class="score">
+          <div>X জিতেছে: <span id="scoreX">0</span></div>
+          <div>O জিতেছে: <span id="scoreO">0</span></div>
+          <div>ড্র: <span id="scoreD">0</span></div>
+          <div>উইন রেট: <span id="winRate">0%</span></div>
+          <div>মুভ: <span id="moveCount">0</span></div>
+          <div>সময়: <span id="elapsed">00:00</span></div>
+        </div>
+
+        <div class="history-wrap">
+          <h3>মুভ হিস্টরি</h3>
+          <ol id="history" class="history" aria-live="polite"></ol>
+        </div>
+
+        <div class="online" id="onlineWrap" hidden>
+          <h3>অনলাইন ম্যাচ</h3>
+          <div class="online-row">
+            <button id="hostBtn" class="btn">Host</button>
+            <button id="joinBtn" class="btn">Join</button>
+          </div>
+          <div class="online-row">
+            <input id="roomInput" class="room" placeholder="Room ID" />
+            <button id="copyRoom" class="btn ghost">Copy</button>
+          </div>
+          <div class="hint">একজন Host করবে, আরেকজন Room ID পেস্ট করে Join করবে।</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>Made with ❤️ | Offline-Ready PWA | P2P Online (PeerJS)</small>
+  </footer>
+
+  <!-- PeerJS (for optional online play) -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js" integrity="sha384-+M9nJ8cE1Ck3b1k0lA9oFLb+CN6r1l5x9y9iXg9pS4rH3f1lC5k5b8nWvJm6GQyZ" crossorigin="anonymous"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
